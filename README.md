@@ -70,7 +70,7 @@ If this tool helped you save time or earn money, please consider supporting its 
 
 <div style="display: flex; gap: 20px; align-items: center;">
   <a href="https://buymeacoffee.com/kumaranuj" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://buymeacoffee.com/kumaranuj" alt="Scan to Donate" width="120" height="120">
+  <img src="qrcode.png" alt="Scan to Donate" width="120" height="120">
 </div>
 
 ## 💼 Hire Me
