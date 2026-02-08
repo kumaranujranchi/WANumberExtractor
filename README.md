@@ -90,7 +90,16 @@ Contributions are welcome! If you have ideas for improvements, feel free to fork
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## � License
+## ⚠️ Legal Disclaimer
+
+This tool is developed for **educational purposes only**.
+
+- **Not Affiliated:** This project is **NOT** affiliated with, endorsed, or sponsored by WhatsApp Inc.
+- **Usage Policy:** You are responsible for how you use this tool. Do **NOT** use this for spamming, harassment, or bulk messaging to unknown numbers.
+- **Compliance:** Ensure you comply with WhatsApp's [Terms of Service](https://www.whatsapp.com/legal/terms-of-service) and your local laws regarding data privacy.
+- **Liability:** The developer is not responsible for any bans or legal consequences resulting from the misuse of this tool.
+
+## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
