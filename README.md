@@ -64,6 +64,22 @@ Download all group contacts to Excel/CSV in one click. Perfect for digital marke
 - **"No numbers found":** Ensure you have opened the "View all" member list and scrolled to the bottom.
 - **Extension not working:** Refresh the WhatsApp Web page and try again.
 
+## ☕ Support the Developer
+
+If this tool helped you save time or earn money, please consider supporting its development!
+
+<a href="https://www.buymeacoffee.com/kumaranujranchi" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+## 💼 Hire Me
+
+Need a custom scraper, automation tool, or Chrome extension?  
+I can build custom solutions for **LinkedIn, Instagram, Google Maps**, and more!
+
+📧 **Contact me:** [kumaranujranchi@gmail.com](mailto:kumaranujranchi@gmail.com)  
+🌐 **Portfolio:** [Your Portfolio Link Here] (Optional)
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! If you have ideas for improvements, feel free to fork the repo and submit a pull request.
