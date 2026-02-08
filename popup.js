@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     statusDiv.classList.remove('hidden');
     resultsDiv.classList.add('hidden');
     errorDiv.classList.add('hidden');
-    instructionsDiv.classList.add('hidden');
+    if (instructionsDiv) instructionsDiv.classList.add('hidden');
     statusText.textContent = text;
     extractBtn.disabled = true;
   }
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     statusDiv.classList.add('hidden');
     resultsDiv.classList.remove('hidden');
     errorDiv.classList.add('hidden');
-    instructionsDiv.classList.add('hidden');
+    if (instructionsDiv) instructionsDiv.classList.add('hidden');
     extractBtn.disabled = false;
     
     // Show download button
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsDiv.classList.add('hidden');
     errorDiv.classList.remove('hidden');
     // Don't hide instructions on error so user can see what to do
-    instructionsDiv.classList.remove('hidden');
+    if (instructionsDiv) instructionsDiv.classList.remove('hidden');
     
     errorText.textContent = text;
     extractBtn.disabled = false;
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `whatsapp_contacts_${new Date().getTime()}.csv`);
+    link.setAttribute("download", `whatsapp_contacts_${new Date().getTime()}.csv`); // Fixed filename
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
