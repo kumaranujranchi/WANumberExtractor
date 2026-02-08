@@ -14,11 +14,29 @@ function extractVisibleNumbers() {
   const phoneNumbers = [];
   const seenNumbers = new Set();
   
-  console.log('Scanning all visible elements...');
+  console.log('Starting extraction...');
+  
+  // Strategy: 
+  // 1. Look for specific containers that hold contact details in the group info pane
+  // 2. Fallback to scanning the right side of the screen if specific containers aren't found
+  
+  // Specific selector for group member list items (changes often, but usually has role="listitem" or specific classes)
+  // We'll target the side panel specifically to avoid chat list numbers
+  const sidePanel = document.querySelector('div[id^="main"]')?.nextElementSibling || document.querySelector('div[data-testid="chat-info-drawer"]');
+  
+  let searchContext = document.body;
+  
+  if (sidePanel) {
+      console.log('Found side panel, restricting search to it.');
+      searchContext = sidePanel;
+  } else {
+      console.log('Side panel not found via ID, trying coordinate filter...');
+      // If we can't find the panel, we'll use the coordinate method but be less strict
+  }
   
   // Use a TreeWalker to find text nodes - fastest and most comprehensive
   const walker = document.createTreeWalker(
-    document.body,
+    searchContext,
     NodeFilter.SHOW_TEXT,
     {
       acceptNode: function(node) {
@@ -41,8 +59,9 @@ function extractVisibleNumbers() {
   console.log(`Found ${nodesToCheck.length} visible text nodes`);
   
   // Define the Chat List width threshold (pixels from left)
-  // Chat list is usually on the left side. Elements here should be ignored.
-  const CHAT_LIST_THRESHOLD = 200; 
+  // Chat list is usually on the left side (approx 40% width max)
+  const windowWidth = window.innerWidth;
+  const CHAT_LIST_THRESHOLD = windowWidth * 0.35; // increased safety margin
   
   let skippedChatList = 0;
   
@@ -53,24 +72,26 @@ function extractVisibleNumbers() {
     if (!element) return;
     
     // Check for phone number
-    // Matches: +91 12345 67890, +91-12345-67890, +911234567890
-    const phoneRegex = /\+\d{1,4}[\s\-]?\d{4,5}[\s\-]?\d{4,6}/g;
+    // Regex matches: +91 12345 67890, +91-12345-67890, +911234567890, and international formats
+    const phoneRegex = /\+\d{1,4}[\s\-]?\d{3,5}[\s\-]?\d{3,6}/g;
     const matches = text.match(phoneRegex);
     
     if (matches) {
-      // Check position
-      const rect = element.getBoundingClientRect();
-      
-      // Filter out elements that are on the left side (Chat List)
-      if (rect.left < CHAT_LIST_THRESHOLD) {
-        skippedChatList++;
-        return;
+      // Check position if we are scanning body (fallback)
+      if (searchContext === document.body) {
+        const rect = element.getBoundingClientRect();
+        // Filter out elements that are on the left side (Chat List)
+        if (rect.left < CHAT_LIST_THRESHOLD) {
+          skippedChatList++;
+          return;
+        }
       }
       
       matches.forEach(match => {
         const cleanNumber = match.replace(/[\s\-]/g, '');
         
-        if (cleanNumber.length >= 10 && !seenNumbers.has(cleanNumber)) {
+        // Basic validation: length 10-15 digits
+        if (cleanNumber.length >= 10 && cleanNumber.length <= 15 && !seenNumbers.has(cleanNumber)) {
           seenNumbers.add(cleanNumber);
           
           // Find Name
