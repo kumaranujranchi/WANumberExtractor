@@ -79,7 +79,7 @@ Need a custom scraper, automation tool, or Chrome extension?
 I can build custom solutions for **LinkedIn, Instagram, Google Maps**, and more!
 
 📧 **Contact me:** [kumaranujranchi@gmail.com](mailto:kumaranujranchi@gmail.com)  
-🌐 **Portfolio:** [Your Portfolio Link Here] (Optional)
+🌐 **Portfolio:** [https://github.com/kumaranujranchi](https://github.com/kumaranujranchi)
 
 ---
 
