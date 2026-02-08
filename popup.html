@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Number Extractor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+    <div class="header">
+      <div class="logo-area">
+        <span class="material-icons-round logo-icon">whatsapp</span>
+        <h1>WA Number Extractor</h1>
+      </div>
+      <p class="subtitle">Export group contacts seamlessly</p>
+    </div>
+
+    <div class="content">
+      <div id="instructions" class="instructions-card">
+        <div class="card-header">
+          <span class="material-icons-round">tips_and_updates</span>
+          <h3>How to use</h3>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <p>Open WhatsApp Group</p>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <p>Click group name &rarr; <strong>"View all"</strong></p>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <p><strong>Scroll to BOTTOM</strong> (load all)</p>
+          </div>
+          <div class="step">
+            <span class="step-num">4</span>
+            <p>Click <strong>Extract</strong> below</p>
+          </div>
+        </div>
+        
+        <div class="warning-box">
+          <span class="material-icons-round warning-icon">warning</span>
+          <p>Scroll down completely to load all members!</p>
+        </div>
+      </div>
+
+      <div id="status" class="status hidden">
+        <div class="loader">
+          <div class="spinner"></div>
+        </div>
+        <p id="status-text">Ready to extract...</p>
+      </div>
+
+      <div id="results" class="results hidden">
+        <div class="result-header">
+          <div class="success-badge">
+            <span class="material-icons-round">check_circle</span>
+            <h2 id="count">0 Numbers</h2>
+          </div>
+        </div>
+        <div class="number-list-container">
+          <ul id="number-list" class="number-list">
+            <!-- Numbers will appear here -->
+          </ul>
+        </div>
+      </div>
+
+      <div id="error" class="error hidden">
+        <span class="material-icons-round error-icon">error_outline</span>
+        <p id="error-text"></p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="extract-btn" class="btn btn-primary">
+        <span class="material-icons-round">download_for_offline</span>
+        Extract Numbers
+      </button>
+      <button id="download-btn" class="btn btn-secondary hidden">
+        <span class="material-icons-round">table_view</span>
+        Download Excel
+      </button>
+    </div>
+
+    <div class="footer">
+      <p>Works on <a href="https://web.whatsapp.com" target="_blank">web.whatsapp.com</a></p>
+    </div>
+  </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
